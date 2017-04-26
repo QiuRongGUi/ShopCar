@@ -76,6 +76,29 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStyleDone target:self action:@selector(editing:)];
+
+}
+- (void)editing:(UIBarButtonItem *)sends{
+    
+    
+    sends.title = self.table.editing? @"设置":@"完成";
+    [self.table setEditing:!self.table.isEditing animated:YES];
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        
+       
+//        [self.table deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.data removeObjectAtIndex:indexPath.section];
+        NSIndexSet  *set = [[NSIndexSet alloc] initWithIndex:indexPath.section]; 
+        [self.table deleteSections:set withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 //结算
 - (IBAction)clikeJS:(UIButton *)sender {
