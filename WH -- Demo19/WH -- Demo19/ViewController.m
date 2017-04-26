@@ -41,7 +41,7 @@
         [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
            
             WineModel *mod = [WineModel mj_objectWithKeyValues:obj];
-            mod.shopCount = 0;
+            mod.shopCount = 1;
             mod.seleoctedShop = NO;
             [_data addObject:mod];
         }];
