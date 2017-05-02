@@ -22,6 +22,8 @@
     
     NSLog(@"test -- 123");
     
+    NSLog(@"test -- 123");
+    
     return YES;
 }
 
